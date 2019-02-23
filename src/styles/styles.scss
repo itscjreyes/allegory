@@ -141,7 +141,7 @@ a.headerLogo {
 
 .banner {
     position: relative;
-    // background: $blueGradient;
+    background: $blueGradient;
 
     > img {
         position: absolute;
@@ -150,7 +150,7 @@ a.headerLogo {
         margin: auto;
         left: 0;
         right: 0;
-        bottom: 0;
+        top: 0;
     }
 
     .container {
@@ -221,6 +221,66 @@ p.stepNumber {
     h3 {
         font-family: $fontMain;
         margin-bottom: 10px;
+        font-size: 24px;
+    }
+}
+
+////////////////////
+// Text and Image
+////////////////////
+
+.textRight {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .imgWrapper,
+    .contentWrapper {
+        width: 45%;
+    }
+
+    .imgWrapper {
+        text-align: center;
+    }
+
+    img {
+        max-width: 400px;
+    }
+
+    h2 {
+        margin-bottom: 40px;
+    }
+}
+
+////////////////////
+// Features
+////////////////////
+
+.featuresGroup {
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+}
+
+.feature {
+    width: calc(100% / 3 - 100px);
+    margin: 50px;
+    text-align: center;
+
+    .icon {
+        height: 50px;
+        width: auto;
+    }
+
+    h3 {
+        font-family: $fontMain;
+        font-weight: 600;
+        margin: 20px 0 10px;
         font-size: 24px;
     }
 }
