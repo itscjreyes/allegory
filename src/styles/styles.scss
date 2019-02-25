@@ -37,6 +37,7 @@ h2 {
 p, li {
     font-weight: 400;
     font-size: 18px;
+    line-height: 1.6;
 }
 
 a {
@@ -51,6 +52,10 @@ a {
     margin: auto;
 }
 
+section {
+    outline: none;
+}
+
 ////////////////////
 // Buttons
 ////////////////////
@@ -59,7 +64,7 @@ a {
     display: inline-block;
     padding: 8px 40px;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     margin-top: 40px;
 
@@ -125,6 +130,7 @@ header {
         .btn {
             margin-top: 0;
             padding: 8px 20px;
+            font-size: 18px;
         }
     }
 }
@@ -134,6 +140,61 @@ a.headerLogo {
     max-width: 175px;
 }
 
+button.mobileTrigger {
+    display: none;
+    position: fixed;
+    right: 8%;
+    top: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 0;
+    background: $lightBlue;
+    outline: none;
+    z-index: 5;
+
+    span {
+        position: absolute;
+        height: 2px;
+        width: 30px;
+        background: white;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transition: $transition;
+
+        &:nth-child(1) {
+            top: 15px;
+        }
+
+        &:nth-child(2) {
+            top: calc(50% - 1px);
+        }
+
+        &:nth-child(3) {
+            bottom: 15px;
+        }
+    }
+
+    &.active {
+        span {
+            &:nth-child(1) {
+                transform: rotate(45deg);
+                top: calc(50% - 1px);
+            }
+
+            &:nth-child(2) {
+                width: 0;
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg);
+                top: calc(50% - 1px);
+                bottom: auto;
+            }
+        }
+    }
+}
 
 ////////////////////
 // Banner
@@ -189,8 +250,11 @@ a.headerLogo {
 ////////////////////
 
 .howItWorks {
+    margin-top: 6%;
+
     h2 {
         text-align: center;
+        margin-bottom: 30px;
     }
 }
 
@@ -226,10 +290,11 @@ p.stepNumber {
 }
 
 ////////////////////
-// Text and Image
+// Two Column
 ////////////////////
 
-.textRight {
+.textRight,
+.titleLeft {
     .container {
         display: flex;
         justify-content: space-between;
@@ -237,6 +302,7 @@ p.stepNumber {
     }
     
     .imgWrapper,
+    .title,
     .contentWrapper {
         width: 45%;
     }
@@ -251,6 +317,20 @@ p.stepNumber {
 
     h2 {
         margin-bottom: 40px;
+    }
+
+    p {
+        padding: 10px 0;
+    }
+}
+
+.titleLeft {
+    .container {
+        align-items: flex-start;
+    }
+
+    .title {
+        text-align: right;
     }
 }
 
@@ -268,8 +348,8 @@ p.stepNumber {
 }
 
 .feature {
-    width: calc(100% / 3 - 100px);
-    margin: 50px;
+    width: calc(100% / 3 - 80px);
+    margin: 40px;
     text-align: center;
 
     .icon {
@@ -282,5 +362,434 @@ p.stepNumber {
         font-weight: 600;
         margin: 20px 0 10px;
         font-size: 24px;
+    }
+}
+
+////////////////////
+// Blue Banner
+////////////////////
+
+.blueBanner {
+    background: $blueGradient;
+    
+    .container {
+        max-width: 700px;
+        text-align: center;
+    }
+
+    h2 {
+        color: white;
+        font-size: 40px;
+    }
+}
+
+////////////////////
+// Testimonials
+////////////////////
+
+.testimonials {
+    h2 {
+        text-align: center;
+    }
+}
+
+.testsGroup {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+
+.test {
+    position: relative;
+    box-shadow: $boxShadow;
+    background: white;
+    text-align: center;
+    padding: 80px 40px 40px;
+    width: calc(100% / 3 - 40px);
+    margin: 20px;
+
+    img {
+        position: absolute;
+        top: -50px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    h3 {
+        font-family: $fontMain;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+////////////////////
+// CTA Banner
+////////////////////
+
+.ctaBanner {
+    .wrapper {
+        background: $blueGradient;
+        text-align: center;
+        padding: 6%;
+        border-radius: 5px;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    h2 {
+        color: white;
+    }
+}
+
+////////////////////
+// FAQs
+////////////////////
+
+.faqs {
+    h2 {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+}
+
+.faqGroup {
+    h3 {
+        font-family: $fontMain;
+        font-size: 26px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+}
+
+.faqSingle {
+    padding: 5px 2%;
+    transition: $transition;
+
+    button {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        background: transparent;
+        border: 0;
+        outline: 0;
+
+        h4 {
+            font-family: $fontMain;
+            font-size: 20px;
+            text-align: left;
+            width: 80%;
+        }
+
+        .fa {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 28px;
+            background: $yellow;
+            color: white;
+            transition: $transition;
+        }
+    }
+
+    &.active {
+        padding: 20px 2%;
+        margin: 20px 0;
+        box-shadow: $boxShadow;
+
+        button .fa {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.faqBlock {
+    display: none;
+    padding: 2% 8% 2% 4%;
+}
+
+////////////////////
+// Footer
+////////////////////
+
+footer {
+    position: relative;
+    background: rgba(0, 206, 209, .25);
+
+    img.footerBG {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        padding-bottom: 0;
+    }
+
+    img.footerLogo {
+        width: 125px;
+    }
+
+    .socialGroup {
+        text-align: right;
+
+        a {
+            display: inline-block;
+            color: inherit;
+            margin: 5px;
+
+            &:hover,
+            &:focus {
+                color: $darkBlue;
+            }
+        }
+    }
+
+    .copyright {
+        padding: 20px;
+        text-align: center;
+        
+        p {
+            font-size: 14px;
+        }
+
+        a {
+            color: inherit;
+        }
+    }
+}
+
+////////////////////
+// Media Queries
+////////////////////
+
+@media screen and (max-width: 950px) {
+    header {
+        nav {
+            li {
+                margin-left: 20px;
+
+                a:not(.btn){
+                    font-size: 16px;
+                }
+
+                &.navCTA {
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+
+    a.headerLogo {
+        max-width: 150px;
+    }
+
+    .bannerPhone {
+        bottom: 50px;
+        max-width: 200px;
+        right: 8%;
+    }
+
+    .textRight {
+        img {
+            max-width: 300px;
+        }
+    }
+
+    .feature {
+        width: calc(50% - 80px);
+    }
+
+    .testsGroup {
+        display: block;
+    }
+
+    .test {
+        width: 100%;
+        margin: 20px 0;
+
+        &:not(:nth-child(1)){
+            margin-top: 80px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px){
+    .container {
+        padding: 10% 6%;
+    }
+    
+    h2 {
+        font-size: 34px;
+    }
+
+    button.mobileTrigger {
+        display: block;
+    }
+
+    header nav {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        background: rgba(0,206,209,0.95);
+        visibility: hidden;
+        opacity: 0;
+        transition: $transition;
+
+        ul {
+            display: block;
+        }
+
+        li {
+            display: block;
+            text-align: center;
+            margin: 10px 0;
+
+            a:not(.btn) {
+                font-size: 30px;
+                border-bottom: 0;
+
+                &:hover,
+                &:focus {
+                    border-bottom: 0;
+                }
+            }
+
+            &.navCTA {
+                margin: 10px 0;
+            }
+        }
+
+        .btn {
+            padding: 8px 40px;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+    }
+
+    header.menuActive {
+        nav {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        button.mobileTrigger {
+            background: transparent;
+        }
+    }
+
+    .bannerPhone {
+        display: none;
+    }
+
+    .banner {
+        .container {
+            padding-top: calc(6% + 125px);
+            padding-bottom: 16%;
+            text-align: center;
+        }
+
+        h1,
+        h2 {
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 44px;
+        }
+
+        h2 {
+            font-size: 22px;
+        }
+    }
+
+    .stepsGroup {
+        display: block;
+    }
+
+    .step {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .textRight,
+    .titleLeft {
+        .container {
+            display: block;
+        }
+
+        .imgWrapper,
+        .title {
+            width: 100%;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        img {
+            display: block;
+            margin: auto;
+            width: 100%;
+        }
+
+        .contentWrapper {
+            width: 100%;
+            margin-top: 30px;
+        }
+    }
+
+    .feature {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .blueBanner {
+        .container {
+            padding: 15% 6%;
+        }
+
+        h2 {
+            font-size: 36px;
+        }
+    }
+
+    .faqGroup {
+        h3 {
+            margin-bottom: 10px;
+        }
+    }
+
+    .faqSingle {
+        padding: 10px 0;
+    }
+
+    .faqSingle:not(:last-child) {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
     }
 }
